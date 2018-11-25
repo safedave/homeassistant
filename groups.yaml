@@ -1,0 +1,30 @@
+  underfloor:
+    name: Underfloor Zones
+    entities:
+     - switch.bathroom
+     - switch.office
+     - switch.bedroom
+     - switch.living_room
+     - switch.kitchen
+  hotwater:
+    name: Hot Water 
+    entities:
+     - switch.hot_water
+  pump:
+    name: Pump
+    entities:
+     - switch.pump
+
+  heating:
+    name: Heating
+    view: true
+    entities:
+     - group.underfloor
+     - group.pump
+  
+  default_view:
+    view: yes
+    name: Main
+    entities:
+    - group.underfloor
+

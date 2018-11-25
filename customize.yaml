@@ -1,0 +1,13 @@
+  switch.pump:
+    icon: mdi:arrow-right-drop-circle
+  switch.bathroom:
+    icon: mdi:shower-head
+  switch.office:
+    icon: mdi:office-building
+  switch.bedroom:
+    icon: mdi:hotel
+  switch.living_room:
+    icon: mdi:sofa
+  switch.kitchen:
+    icon: mdi:silverware-fork-knife
+
