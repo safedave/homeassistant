@@ -77,7 +77,8 @@ switch:
       17: Living Room
       27: Kitchen
       22: Pump
-      10: hot_water
+      10: Bio_hotwater
+      9: Elec_hotwater
     invert_logic: true
 
 

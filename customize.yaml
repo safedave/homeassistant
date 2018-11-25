@@ -10,4 +10,8 @@
     icon: mdi:sofa
   switch.kitchen:
     icon: mdi:silverware-fork-knife
+  switch.bio_hotwater:
+    icon: mdi:fire
+  switch.elec_hotwater:
+    icon: mdi:flash
 

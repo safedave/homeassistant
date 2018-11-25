@@ -9,7 +9,9 @@
   hotwater:
     name: Hot Water 
     entities:
-     - switch.hot_water
+     - switch.bio_hotwater
+     - switch.elec_hotwater
+
   pump:
     name: Pump
     entities:
@@ -27,4 +29,4 @@
     name: Main
     entities:
     - group.underfloor
-
+    - group.hotwater
