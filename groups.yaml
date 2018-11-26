@@ -17,6 +17,15 @@
     entities:
      - switch.pump
 
+  boiler_house:
+    name: Boiler House
+    entities:
+     - sensor.buffer_top_temperature
+     - sensor.buffer_middle_temperature
+     - sensor.buffer_bottom_temperature
+     - sensor.kitchen_temperature
+     - sensor.living_room_temperature
+
   heating:
     name: Heating
     view: true
@@ -30,3 +39,4 @@
     entities:
     - group.underfloor
     - group.hotwater
+    - group.boiler_house

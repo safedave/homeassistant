@@ -1,2 +1,6 @@
-2018-11-25 21:12:34 WARNING (MainThread) [homeassistant.setup] Setup of recorder is taking over 10 seconds.
-2018-11-25 21:12:34 WARNING (MainThread) [homeassistant.setup] Setup of frontend is taking over 10 seconds.
+2018-11-26 21:36:04 WARNING (MainThread) [homeassistant.setup] Setup of recorder is taking over 10 seconds.
+2018-11-26 21:36:04 WARNING (MainThread) [homeassistant.setup] Setup of frontend is taking over 10 seconds.
+2018-11-26 21:55:04 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.living_room_temperature is taking over 10 seconds
+2018-11-26 21:55:25 WARNING (MainThread) [homeassistant.components.sensor] Updating onewire sensor took longer than the scheduled update interval 0:00:30
+2018-11-26 21:55:56 WARNING (MainThread) [homeassistant.components.sensor] Updating onewire sensor took longer than the scheduled update interval 0:00:30
+2018-11-26 21:56:27 WARNING (MainThread) [homeassistant.components.sensor] Updating onewire sensor took longer than the scheduled update interval 0:00:30
