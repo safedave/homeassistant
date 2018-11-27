@@ -74,3 +74,12 @@
     - service: switch.turn_off
       entity_id: switch.kitchen
 
+- alias: Thermostat_living_room 
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.living_room_temperature
+      above: '20'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.living_room
+

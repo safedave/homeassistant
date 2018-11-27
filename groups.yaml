@@ -20,11 +20,11 @@
   boiler_house:
     name: Boiler House
     entities:
-     - sensor.buffer_top_temperature
-     - sensor.buffer_middle_temperature
-     - sensor.buffer_bottom_temperature
-     - sensor.kitchen_temperature
+     - sensor.bathroom_temperature
+     - sensor.office_temperature
+     - sensor.bedroom_temperature
      - sensor.living_room_temperature
+     - sensor.kitchen_temperature
 
   heating:
     name: Heating
@@ -40,3 +40,4 @@
     - group.underfloor
     - group.hotwater
     - group.boiler_house
+    - climate.thermostat_living_room
