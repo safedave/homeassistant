@@ -1,11 +1,53 @@
+  default_view:
+    view: yes
+    name: Main
+    entities:
+     - group.heatingcontrol
+     - group.underfloor_status
+#    - group.hotwater
+#    - group.family
+    
+  heating:
+    name: Heating
+    view: true
+    entities:
+     - group.underfloor
+     - group.pump
+     - group.jave_cabin
+     - automation.heating_evenings_off
+     - automation.heating_evenings_on
+     - automation.heating_morning_off
+     - automation.heating_morning_on
+  
+  heatingcontrol:
+    name: Heating Control
+    entities:
+     - input_boolean.heating_home_today
+
+
   underfloor:
     name: Underfloor Zones
     entities:
      - switch.bathroom
      - switch.office
      - switch.bedroom
-     - switch.living_room
-     - switch.kitchen
+#     - switch.living_room
+#     - switch.kitchen
+     - climate.thermostat_living_room
+     - climate.thermostat_kitchen
+
+
+  underfloor status:
+    name: Underfloor Status
+    entities:
+     - climate.thermostat_living_room
+     - climate.thermostat_kitchen
+     - binary_sensor.bathroom
+     - binary_sensor.office
+     - binary_sensor.bedroom
+     - binary_sensor.living_room
+     - binary_sensor.kitchen
+
   hotwater:
     name: Hot Water 
     entities:
@@ -17,8 +59,8 @@
     entities:
      - switch.pump
 
-  boiler_house:
-    name: Boiler House
+  Jave Cabin:
+    name: Jave Cabin
     entities:
      - sensor.bathroom_temperature
      - sensor.office_temperature
@@ -26,18 +68,8 @@
      - sensor.living_room_temperature
      - sensor.kitchen_temperature
 
-  heating:
-    name: Heating
-    view: true
+  family:
+    name: Family
     entities:
-     - group.underfloor
-     - group.pump
-  
-  default_view:
-    view: yes
-    name: Main
-    entities:
-    - group.underfloor
-    - group.hotwater
-    - group.boiler_house
-    - climate.thermostat_living_room
+    - device_tracker.david
+

@@ -15,7 +15,7 @@
   action:
     - service: switch.turn_off
       entity_id: switch.pump
-  
+ 
 - alias: rooms off if pump off
   trigger:
     - platform: state
@@ -26,7 +26,7 @@
       entity_id: group.underfloor
 
 
-- alias: Heating - Morning On
+- alias: Heating Morning On
   trigger:
     - platform: time
       at: '05:30:00'
@@ -37,49 +37,76 @@
       entity_id: switch.office
     - service: switch.turn_on
       entity_id: switch.bedroom
+    - service: climate.turn_on
+      entity_id: climate.thermostat_kitchen
 
-- alias: Heating - Morning Off
+- alias: Heating Morning Off
   trigger:
     - platform: time
       at: '8:00:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.heating_home_today
+      state: 'off'
   action:
     - service: switch.turn_off
-      entity_id: switch.bathroom
-    - service: switch.turn_off
-      entity_id: switch.office
-    - service: switch.turn_off
-      entity_id: switch.bedroom
+      entity_id: group.underfloor
+    - service: climate.turn_off
+      entity_id: group.underfloor
 
-- alias: Heating - Evenings On
+#    - service: switch.turn_off
+#      entity_id: switch.bathroom
+#    - service: switch.turn_off
+#      entity_id: switch.office
+#    - service: switch.turn_off
+#      entity_id: switch.bedroom
+#    - service: climate.turn_off
+#      entity_id: climate.thermostat_kitchen
+
+
+- alias: Heating Evenings On
   trigger:
     - platform: time
       at: '15:30:00'
   action:
     - service: switch.turn_on
       entity_id: switch.bathroom
-    - service: switch.turn_on
-      entity_id: switch.living_room
-    - service: switch.turn_on
-      entity_id: switch.kitchen
+    - service: climate.turn_on
+      entity_id: climate.thermostat_living_room
+    - service: climate.turn_on
+      entity_id: climate.thermostat_kitchen
 
-- alias: Heating - Evenings Off
+
+- alias: Heating Evenings Off
   trigger:
     - platform: time
       at: '22:30:00'
   action:
     - service: switch.turn_off
       entity_id: switch.bathroom
-    - service: switch.turn_off
-      entity_id: switch.living_room
-    - service: switch.turn_off
-      entity_id: switch.kitchen
+    - service: climate.turn_off
+      entity_id: climate.thermostat_living_room
+    - service: climate.turn_off
+      entity_id: climate.thermostat_kitchen
 
-- alias: Thermostat_living_room 
+#- alias: Thermostat_living_room 
+#  trigger:
+#    - platform: numeric_state
+#      entity_id: sensor.living_room_temperature
+#      above: '20'
+#  action:
+#    - service: switch.turn_off
+#      entity_id: switch.living_room
+
+
+- alias: Heating Home Today 
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.living_room_temperature
-      above: '20'
+    - platform: state
+      to: 'on'
+      entity_id: input_boolean.heating_home_today
   action:
-    - service: switch.turn_off
-      entity_id: switch.living_room
+    - service: climate.turn_on
+      entity_id: climate.thermostat_kitchen
+    - service: switch.turn_on
+      entity_id: switch.office
 

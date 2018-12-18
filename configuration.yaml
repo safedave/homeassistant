@@ -1,6 +1,6 @@
 homeassistant:
   # Name of the location where Home Assistant is running
-  name: ArglamWoods
+  name: Arglam Wood
   # Location required to calculate the time the sun rises and sets
   latitude: 0
   longitude: 0
@@ -36,7 +36,7 @@ updater:
   # include_used_components: true
 
 # Discover some devices automatically
-#discovery:
+discovery:
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
@@ -89,18 +89,63 @@ switch:
 
 climate:
   - platform: generic_thermostat
-    name: Thermostat Living Room
+    name: Thermostat Living room
     heater: switch.living_room
     target_sensor: sensor.living_room_temperature
     min_temp: 15
     max_temp: 27
     ac_mode: False
-    target_temp: 17
-    cold_tolerance: 0.3
-    hot_tolerance: 0
+    target_temp: 21
+    cold_tolerance: 0.5
+    hot_tolerance: 0.5
     min_cycle_duration:
-      seconds: 5
+      seconds: 360
     keep_alive:
       minutes: 3
-    initial_operation_mode: "off"
-    away_temp: 16
+    initial_operation_mode: "auto"
+    away_temp: 14
+
+  - platform: generic_thermostat
+    name: Thermostat Kitchen
+    heater: switch.kitchen
+    target_sensor: sensor.kitchen_temperature
+    min_temp: 15
+    max_temp: 27
+    ac_mode: False
+    target_temp: 21
+    cold_tolerance: 0.5
+    hot_tolerance: 0.5
+    min_cycle_duration:
+      seconds: 360
+    keep_alive:
+      minutes: 3
+    initial_operation_mode: "auto"
+    away_temp: 14
+
+
+binary_sensor:
+  - platform: template
+    sensors:
+      bathroom:
+        value_template: "{{ is_state('switch.bathroom', 'on') }}"
+      office:
+        value_template: "{{ is_state('switch.office', 'on') }}"
+      bedroom:
+        value_template: "{{ is_state('switch.bedroom', 'on') }}"
+      living_room:
+        value_template: "{{ is_state('switch.living_room', 'on') }}"
+      kitchen:
+        value_template: "{{ is_state('switch.kitchen', 'on') }}"
+      morning:
+        value_template: "{{ is_state('automation.heating_evenings_on', 'on') }}"
+      evening:
+        value_template: "{{ is_state('automation.heating_evenings_off', 'on') }}"
+
+media_player:
+  - platform: squeezebox
+    host: 192.168.1.9
+
+input_boolean:
+  heating_home_today:
+    name: Home Today
+    initial: off

@@ -1,0 +1,44 @@
+{
+    "data": {
+        "entities": [
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.bathroom_room",
+                "name": null,
+                "platform": "squeezebox",
+                "unique_id": "00:04:20:17:ac:f8"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.davebox",
+                "name": null,
+                "platform": "squeezebox",
+                "unique_id": "00:04:20:12:5d:88"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.controller",
+                "name": null,
+                "platform": "squeezebox",
+                "unique_id": "00:04:20:1b:79:8a"
+            },
+            {
+                "config_entry_id": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "media_player.jennidaves_bedroom",
+                "name": null,
+                "platform": "squeezebox",
+                "unique_id": "00:04:20:17:80:ff"
+            }
+        ]
+    },
+    "key": "core.entity_registry",
+    "version": 1
+}

@@ -1,0 +1,15 @@
+Icons: https://materialdesignicons.com/
+Github: https://github.com/safedave/homeassistant/
+ibrew: https://github.com/Tristan79/iBrew
+
+
+sudo modprobe w1-gpio
+sudo modprobe w1-therm
+cd /sys/bus/w1/devices/
+
+
+1 	28-021313d1a9aa
+2 	28-021312cb82aa  
+3	28-01131b7f1a66
+4	28-021312cf9caa
+5	28-01131b81aed5
