@@ -23,7 +23,10 @@ frontend:
 config:
 
 # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
+#http:
+#   base_url: arglamwood.duckdns.org:8123
+#   ssl_certificate: /home/homeassistant/dehydrated/certs/arglamwood.duckdns.org/fullchain.pem
+#   ssl_key: /home/homeassistant/dehydrated/certs/arglamwood.duckdns.org/privkey.pem
 #   base_url: example.duckdns.org:8123
 
 # Checks for available updates
@@ -37,6 +40,9 @@ updater:
 
 # Discover some devices automatically
 discovery:
+
+recorder:
+  db_url: sqlite:///opt/homeassistant/home-assistant_v2.db
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 #conversation:
@@ -103,7 +109,7 @@ climate:
     keep_alive:
       minutes: 3
     initial_operation_mode: "auto"
-    away_temp: 14
+    away_temp: 8
 
   - platform: generic_thermostat
     name: Thermostat Kitchen
@@ -120,7 +126,7 @@ climate:
     keep_alive:
       minutes: 3
     initial_operation_mode: "auto"
-    away_temp: 14
+    away_temp: 8
 
 
 binary_sensor:
@@ -141,6 +147,10 @@ binary_sensor:
       evening:
         value_template: "{{ is_state('automation.heating_evenings_off', 'on') }}"
 
+  - platform: workday
+    country: UK
+    workdays: [mon, tue, wed, thu, fri]
+
 media_player:
   - platform: squeezebox
     host: 192.168.1.9
@@ -149,3 +159,13 @@ input_boolean:
   heating_home_today:
     name: Home Today
     initial: off
+
+  heating_away_mode:
+    name: Heating Away Mode
+    initial: off
+
+input_datetime:
+  heating_away_mode_runtime: 
+    name: heating_away_mode_runtime 
+    has_date: true
+    has_time: true
